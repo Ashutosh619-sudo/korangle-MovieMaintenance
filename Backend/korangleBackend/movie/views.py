@@ -36,7 +36,7 @@ def get_actor_list(request):
 @api_view(["POST"])
 def upvote_movie(request):
 
-    movie_id = request.data["movie_id"]
+    movie_id = request.data["id"]
     movie = Movie.objects.get(id=movie_id)
     movie.votes += 1
     movie.save()
@@ -45,7 +45,7 @@ def upvote_movie(request):
 @api_view(["POST"])
 def downvote_movie(request):
 
-    movie_id = request.data["movie_id"]
+    movie_id = request.data["id"]
     movie = Movie.objects.get(id=movie_id)
     movie.votes -= 1
     movie.save()
